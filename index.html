@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ceb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0 PIN DOCS </title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <p class="tagline">TERADYNE</p>
+            </div>
+            
+            <div class="nav-section">
+                <h3><i class="fas fa-chart-line"></i> Statistics</h3>
+                <div class="stats-mini">
+                    <div class="stat-item-mini">
+                        <span class="stat-number-mini" id="totalDocsMini">0</span>
+                        <span class="stat-label-mini">Total Docs</span>
+                    </div>
+                    <div class="stat-item-mini">
+                        <span class="stat-number-mini" id="filteredDocsMini">0</span>
+                        <span class="stat-label-mini">Results</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <h3><i class="fas fa-folder"></i> Categories</h3>
+                <div class="category-list">
+                    <div class="category-item active" data-category="">
+                        <i class="fas fa-layer-group"></i>
+                        <span>All Documents</span>
+                        <span class="count" id="allCount">0</span>
+                    </div>
+                    <div class="category-item" data-category="CDU">
+                        <i class="fas fa-server"></i>
+                        <span>CDU</span>
+                        <span class="count" id="cduCount">0</span>
+                    </div>
+                    <div class="category-item" data-category="TH12">
+                        <i class="fas fa-microchip"></i>
+                        <span>Test Head 12</span>
+                        <span class="count" id="th12Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="TH24">
+                        <i class="fas fa-microchip"></i>
+                        <span>Test Head 24</span>
+                        <span class="count" id="th24Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="SC12">
+                        <i class="fas fa-cog"></i>
+                        <span>Support Cabinet 12</span>
+                        <span class="count" id="sc12Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="SC24">
+                        <i class="fas fa-cogs"></i>
+                        <span>Support Cabinet 24</span>
+                        <span class="count" id="sc24Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="ADB12">
+                        <i class="fas fa-microchip"></i>
+                        <span>ADB 12</span>
+                        <span class="count" id="adb12Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="ADB24">
+                        <i class="fas fa-microchip"></i>
+                        <span>ADB 24</span>
+                        <span class="count" id="adb24Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="CABLE12">
+                        <i class="fas fa-plug"></i>
+                        <span>Cable Integration 12</span>
+                        <span class="count" id="cable12Count">0</span>
+                    </div>
+                    <div class="category-item" data-category="CABLE24">
+                        <i class="fas fa-plug"></i>
+                        <span>Cable Integration 24</span>
+                        <span class="count" id="cable24Count">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>Document Management System</h1>
+                    <p>Advanced search and management for technical documentation</p>
+                </div>
+                <div class="header-right">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+    <div class="search-section">
+                <div class="search-header">
+                    <h2><i class="fas fa-search"></i> Advanced Search</h2>
+                    <div class="search-stats">
+                        <span id="searchStatus">Ready to search</span>
+                    </div>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search by filename, reference number, or keywords...">
+                        <button class="voice-search-btn" id="voiceSearchBtn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                    <button id="searchBtn" class="search-btn-primary">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label><i class="fas fa-filter"></i> Category</label>
+                            <select id="categoryFilter">
+                                <option value="">All Categories</option>
+                                <option value="CDU">CDU - Cooling Distribution Unit</option>
+                                <option value="TH12">TH - Test Head 12</option>
+                                <option value="TH24">TH - Test Head 24</option>
+                                <option value="SC12">Support Cabinet 12</option>
+                                <option value="SC24">Support Cabinet 24</option>
+                                <option value="ADB12">ADB 12</option>
+                                <option value="ADB24">ADB 24</option>
+                                <option value="CABLE12">Cable Integration 12</option>
+                                <option value="CABLE24">Cable Integration 24</option>
+                            </select>
+                        </div>
+                        
+                                                
+                        <div class="filter-group">
+                            <label><i class="fas fa-sort"></i> Sort By</label>
+                            <select id="sortFilter">
+                                <option value="name">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="category">Category</option>
+                                <option value="size">File Size</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button id="clearFilters" class="btn-secondary">
+                            <i class="fas fa-times"></i> Clear Filters
+                        </button>
+                        <button id="exportResults" class="btn-outline">
+                            <i class="fas fa-download"></i> Export Results
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <h3><i class="fas fa-folder-open"></i> Search Results</h3>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loadingSpinner" class="loading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Searching documents...</p>
+                </div>
+                
+                <div id="resultsContainer" class="results-grid">
+                    <!-- Results will be populated here -->
+                </div>
+                
+                <div id="noResults" class="no-results" style="display: none;">
+                    <div class="no-results-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>No documents found</h3>
+                    <p>Try adjusting your search criteria or browse all documents</p>
+                    <button class="btn-primary" onclick="clearAllFilters()">
+                        <i class="fas fa-redo"></i> Show All Documents
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Kevin John Juntilla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
